@@ -1,0 +1,30 @@
+@(info: Option[Any])(implicit context: gitbucket.core.controller.Context)
+@import context._
+@import gitbucket.core.html.main
+@import gitbucket.core.admin.html.menu
+@import gitbucket.core.helper.html.information
+@import gitbucket.core.view.helpers._
+@import gitbucket.core.util.Directory._
+@main("New announce"){
+@menu("announce"){
+@information(info)
+<form action="@path/admin/announce" method="POST" validate="true">
+    <div class="box">
+        <div class="box-header">New announce</div>
+        <div class="box-content">
+            <fieldset>
+                <label><span class="strong">Subject</span></label>
+                <input type="text" style="width: 635px;" name="subject"/>
+            </fieldset>
+            <label><span class="strong">Content</span></label>
+            <fieldset>
+                <textarea style="width: 635px; height: 100px;" name="content"></textarea>
+            </fieldset>
+        </div>
+        <fieldset>
+            <input type="submit" class="btn btn-success" value="Send Announce"/>
+        </fieldset>
+    </div>
+</form>
+}
+}
