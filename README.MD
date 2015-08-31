@@ -8,7 +8,7 @@ This plugin enhances [takezoe/gitbucket](https://github.com/takezoe/gitbucket) b
 
 This feature allows to notify gitbucket users. It is available to _admin_ users via  the `System Administration` menu of gitbucket.
 
-The global announce, sends an email to all active users.
+The global announce sends an email to all active users. For that, notifications and thus SMTP settings of the global gitbucket configuration have to be correctly filled in the `System Administration\System Settings\Notification email` section.
 
 It is then possible, for example, to notify every user that an upgrade of the system is planned the next monday at midday.
 
