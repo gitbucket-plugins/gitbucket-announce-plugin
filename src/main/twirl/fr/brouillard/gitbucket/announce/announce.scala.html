@@ -14,17 +14,37 @@
         <div class="box-content">
             <fieldset>
                 <label><span class="strong">Subject</span></label>
-                <input type="text" style="width: 635px;" name="subject"/>
+                <input id="announceName" type="text" style="width: 635px;" name="subject"/>
             </fieldset>
             <label><span class="strong">Content</span></label>
             <fieldset>
-                <textarea style="width: 635px; height: 100px;" name="content"></textarea>
+                <textarea id="announceContent" style="width: 635px; height: 100px;" name="content"></textarea>
             </fieldset>
+            <button id="preview" class="btn btn-default">Preview</button>
+            <div id="previewArea"></div>
         </div>
     </div>
     <fieldset>
         <input type="submit" class="btn btn-success" value="Send Announce"/>
     </fieldset>
 </form>
+
+<script>
+    $(function() {
+        $('#preview').click(function() {
+            $.post(
+                '@path/admin/announce/_preview'
+                , {
+                    subject: $('#announceName').val()
+                    , content: $('#announceContent').val()
+                }
+                , function(data) {
+                    $('#previewArea').html(data);
+                }
+            );
+        });
+    });
+
+</script>
 }
 }

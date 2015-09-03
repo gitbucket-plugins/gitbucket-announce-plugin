@@ -5,6 +5,7 @@ import gitbucket.core.controller.ControllerBase
 import gitbucket.core.service.{AccountService, SystemSettingsService}
 import gitbucket.core.servlet.Database
 import gitbucket.core.util.AdminAuthenticator
+import gitbucket.core.view.helpers
 import jp.sf.amateras.scalatra.forms._
 import org.apache.commons.mail.{DefaultAuthenticator, HtmlEmail}
 import org.pegdown.PegDownProcessor
@@ -28,6 +29,11 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
   get("/admin/announce")(adminOnly {
     html.announce(flash.get("info"))
   })
+
+  post("/admin/announce/_preview", announceForm) { form =>
+    contentType = "text/html"
+    new PegDownProcessor().markdownToHtml(form.content)
+  }
 
   post("/admin/announce", announceForm)(adminOnly { form =>
     flash += "info" -> "Announce has been sent."
