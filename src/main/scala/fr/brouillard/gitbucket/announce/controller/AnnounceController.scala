@@ -7,7 +7,8 @@ import gitbucket.core.servlet.Database
 import gitbucket.core.util.AdminAuthenticator
 import jp.sf.amateras.scalatra.forms._
 import org.apache.commons.mail.{DefaultAuthenticator, HtmlEmail}
-import org.pegdown.PegDownProcessor
+import io.github.gitbucket.markedj.Marked
+import io.github.gitbucket.markedj.Options
 import org.slf4j.LoggerFactory
 
 class AnnounceController extends AnnounceControllerBase
@@ -58,7 +59,10 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
       email.setCharset("UTF-8")
       email.setSubject(form.subject)
 
-      email.setHtmlMsg(new PegDownProcessor().markdownToHtml(form.content))
+      val opts = new Options();
+      opts.setSanitize(true);
+
+      email.setHtmlMsg(Marked.marked(form.content, opts))
 
       logger.info("sending email: {}", form.content)
       val database = Database()
