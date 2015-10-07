@@ -9,6 +9,7 @@
 @menu("announce"){
 @information(info)
 <form action="@path/admin/announce" method="POST" validate="true">
+        @if(settings.useSMTP && settings.smtp.nonEmpty){
     <div class="box">
         <div class="box-header">New announce</div>
         <div class="box-content">
@@ -25,6 +26,11 @@
     <fieldset>
         <input type="submit" class="btn btn-success" value="Send Announce"/>
     </fieldset>
+        } else {
+    <div class="box">
+            <p>SMTP settings are disabled, verify your setup.</p>
+    </div>
+        }
 </form>
 }
 }

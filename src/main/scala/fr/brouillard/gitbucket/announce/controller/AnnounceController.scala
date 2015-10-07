@@ -31,14 +31,13 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
   })
 
   post("/admin/announce", announceForm)(adminOnly { form =>
-    flash += "info" -> "Announce has been sent."
 
     if (logger.isDebugEnabled) {
       logger.debug("sending announce: {}", form.content)
     }
 
     val systemSettings = new SystemSettingsService {}.loadSystemSettings
-    if (systemSettings.notification && systemSettings.smtp.nonEmpty) {
+    if (systemSettings.useSMTP && systemSettings.smtp.nonEmpty) {
       val email = new HtmlEmail
       val smtp = systemSettings.smtp.get
 
@@ -71,6 +70,9 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
       }
 
       email.send()
+      flash += "info" -> "Announce has been sent."
+    } else {
+      flash += "info" -> "Announce cannot be sent, verify SMTP settings"
     }
 
     redirect("/admin/announce")
