@@ -12,6 +12,14 @@ The global announce sends an email to all active users. For that, notifications 
 
 It is then possible, for example, to notify every user that an upgrade of the system is planned the next monday at midday.
 
+## Compatibility
+
+Plugin version | GitBucket version
+:--------------|:-----------------
+1.1.x          | 3.7.x
+1.0.x          | 3.6.x
+
+
 ## Usage
 
 - Open a shell window at the root of the project, hit `sbt package`
@@ -20,6 +28,11 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 - Restart GitBucket
 
 ## Release Notes
+
+### 1.1
+
+- [issue-5](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/5) use new `SystemSettings.useSMTP` property introduced in gitbucket 3.7
+- [pullrequest-7](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/pull/7) adapt markdown parser
 
 ### 1.0
 

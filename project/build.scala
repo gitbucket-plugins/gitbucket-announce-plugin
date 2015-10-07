@@ -7,7 +7,7 @@ object MyBuild extends Build {
 
   val Organization = "fr.brouillard.gitbucket"
   val Name = "gitbucket-announce-plugin"
-  val Version = "1.0"
+  val Version = "1.1"
   val ScalaVersion = "2.11.6"
 
   lazy val project = Project (
