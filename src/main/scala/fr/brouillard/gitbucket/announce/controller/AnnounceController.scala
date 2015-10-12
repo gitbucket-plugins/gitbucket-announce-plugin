@@ -11,6 +11,16 @@ import io.github.gitbucket.markedj.Marked
 import io.github.gitbucket.markedj.Options
 import org.slf4j.LoggerFactory
 
+import gitbucket.core.model.{GroupMember, Account}
+import gitbucket.core.model.Profile._
+import gitbucket.core.util.{StringUtil, LDAPUtil}
+import gitbucket.core.service.SystemSettingsService.SystemSettings
+import profile.simple._
+import StringUtil._
+import org.slf4j.LoggerFactory
+// TODO Why is direct import required?
+import gitbucket.core.model.Profile.dateColumnType
+
 class AnnounceController extends AnnounceControllerBase
 with AdminAuthenticator
 
@@ -19,11 +29,30 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
 
   private val logger = LoggerFactory.getLogger(classOf[AnnounceController])
 
-  case class AnnounceForm(content: String, subject: String)
+  object EmailAddress {
+    def isValid(email: String): Boolean = EmailRegex.pattern.matcher(email.toUpperCase).matches()
+
+    private val EmailRegex = """\b[a-zA-Z0-9.!#$%&¡¯*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\b""".r
+  }
+
+  def getAccountByGroupName(groupName: String, includeRemoved: Boolean = false)(implicit s: Session): List[Account] = {
+    val needs = GroupMembers
+      .filter(_.groupName === groupName.bind)
+      .sortBy(_.userName)
+      .map(_.userName)
+      .list
+
+    Accounts
+      .filter(t => (t.userName inSetBind needs) && (t.removed === false.bind, !includeRemoved))
+      .list
+  }
+
+  case class AnnounceForm(content: String, subject: String, to: String)
 
   private val announceForm = mapping(
     "content" -> trim(label("Announce", text(required))),
-    "subject" -> trim(label("Subject", text(required)))
+    "subject" -> trim(label("Subject", text(required))),
+    "to" -> trim(label("To", text(required)))
   )(AnnounceForm.apply)
 
   get("/admin/announce")(adminOnly {
@@ -63,10 +92,19 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
 
       email.setHtmlMsg(Marked.marked(form.content, opts))
 
-      logger.info("sending email: {}", form.content)
+      logger.debug("sending email subject: {}", form.subject)
+      logger.debug("sending email content: {}", form.content)
       val database = Database()
       database withSession { implicit session =>
-        getAllUsers(false).filter(account => !account.isGroupAccount && account.mailAddress.nonEmpty).foreach(account => email.addBcc(account.mailAddress))
+        val mailto = form.to.split(",").map(_.trim).map(groupaccount => {
+            val userMailAddress :List[Account] = if(groupaccount.toUpperCase == "ALL")  getAllUsers(false) else getAccountByGroupName(groupaccount)
+            userMailAddress.filter(account => !account.isGroupAccount && account.mailAddress.nonEmpty && EmailAddress.isValid(account.mailAddress))  
+          }    
+        ).flatMap(a => a).map(_.mailAddress).toSet//.foreach(account => email.addBcc(account.mailAddress)
+        logger.debug("sending email to: {}", form.to)
+        logger.debug("sending email to EmailAddress: {}", mailto.mkString(","))
+        //getAllUsers(false).filter(account => !account.isGroupAccount && account.mailAddress.nonEmpty && EmailAddress.isValid(account.mailAddress)).foreach(account => email.addBcc(account.mailAddress))
+        mailto.foreach(mailAddress => email.addBcc(mailAddress))
       }
 
       email.send()
