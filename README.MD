@@ -16,7 +16,8 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
-1.1.x          | 3.7.x
+1.2.x          | 3.11.x
+1.1.x          | 3.7.x -> 3.10.x
 1.0.x          | 3.6.x
 
 
@@ -28,6 +29,9 @@ Plugin version | GitBucket version
 - Restart GitBucket
 
 ## Release Notes
+
+### 1.2
+- [issue-9](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/9) make the plugin compatible with gitbucket 3.11
 
 ### 1.1
 

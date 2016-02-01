@@ -5,7 +5,7 @@ import gitbucket.core.controller.ControllerBase
 import gitbucket.core.service.{AccountService, SystemSettingsService}
 import gitbucket.core.servlet.Database
 import gitbucket.core.util.AdminAuthenticator
-import jp.sf.amateras.scalatra.forms._
+import io.github.gitbucket.scalatra.forms._
 import org.apache.commons.mail.{DefaultAuthenticator, HtmlEmail}
 import io.github.gitbucket.markedj.Marked
 import io.github.gitbucket.markedj.Options
