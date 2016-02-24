@@ -13,7 +13,9 @@ class Plugin extends gitbucket.core.plugin.Plugin {
   override val description: String = "Allows to handle announces for gitbucket"
 
   override val versions: List[Version] = List(
-    Version(1, 1)
+    Version(1, 3)
+    , Version(1, 2)
+    , Version(1, 1)
     , Version(1, 0)
   )
 

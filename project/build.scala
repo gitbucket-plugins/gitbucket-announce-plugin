@@ -7,7 +7,7 @@ object MyBuild extends Build {
 
   val Organization = "fr.brouillard.gitbucket"
   val Name = "gitbucket-announce-plugin"
-  val Version = "1.2"
+  val Version = "1.3"
   val ScalaVersion = "2.11.6"
 
   lazy val project = Project (
@@ -27,7 +27,9 @@ object MyBuild extends Build {
     libraryDependencies ++= Seq(
       "gitbucket"          % "gitbucket-assembly" % "3.11.0" % "provided",
       "com.typesafe.play" %% "twirl-compiler"     % "1.0.4" % "provided",
-      "javax.servlet"      % "javax.servlet-api"  % "3.1.0" % "provided"
+      "javax.servlet"      % "javax.servlet-api"  % "3.1.0" % "provided",
+      "org.apache.commons" % "commons-email"      % "1.4" % "provided",
+      "com.sun.mail"       % "javax.mail"         % "1.5.2" % "provided"
     ),
     javacOptions in compile ++= Seq("-target", "7", "-source", "7")
   ).enablePlugins(SbtTwirl)
