@@ -10,9 +10,9 @@
 @information(info)
 <form action="@path/admin/announce" method="POST" validate="true">
         @if(settings.useSMTP && settings.smtp.nonEmpty){
-    <div class="box">
-        <div class="box-header">New announce</div>
-        <div class="box-content">
+    <div class="panel panel-default">
+        <div class="panel-heading strong">New announce</div>
+        <div class="panel-body">
             <fieldset>
                 <label><span class="strong">To</span></label>
                 <input type="text" style="width: 635px;" name="to"/>
