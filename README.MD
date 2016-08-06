@@ -16,7 +16,8 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
-1.4.x          | 4.x.y
+1.5.x          | 4.3.y
+1.4.x          | 4.0.0 -> 4.2.x
 1.3.x          | 3.11.x, 3.12.x
 1.2.x          | 3.11.x
 1.1.x          | 3.7.x -> 3.10.x
@@ -32,8 +33,11 @@ Plugin version | GitBucket version
 
 ## Release Notes
 
+### 1.5.0
+- [issue-12](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/12) adapt to new gitbucket version handling
+
 ### 1.4.0
-- [issue-11](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/11) enahnce plugin compatibility, runs with gitbucket 4.0.0
+- [issue-11](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/11) enhance plugin compatibility, runs with gitbucket 4.0.0
 
 ### 1.3
 - [issue-10](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/10) allow sending to partial list of receivers, correct exception handling on email failure
