@@ -8,7 +8,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
 
   override val pluginName: String = "Announce Plugin"
 
-  override val description: String = "Allows to handle announces for gitbucket"
+  override val description: String = "Provide announces for gitbucket users and groups"
 
   override val versions: List[Version] = List(
     new Version("1.0.0")
@@ -17,6 +17,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
     , new Version("1.3.0")
     , new Version("1.4.0")
     , new Version("1.5.0")
+    , new Version("1.6.0")
   )
 
   override val systemSettingMenus: Seq[(Context) => Option[Link]] = Seq(

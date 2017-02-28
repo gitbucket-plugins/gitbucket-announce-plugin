@@ -1,24 +1,19 @@
 package fr.brouillard.gitbucket.announce.controller
 
+import javax.mail.SendFailedException
+
+import com.github.takezoe.slick.blocking.BlockingH2Driver.blockingApi._
 import fr.brouillard.gitbucket.announce.html
 import gitbucket.core.controller.ControllerBase
+import gitbucket.core.model.Account
+import gitbucket.core.model.Profile._
 import gitbucket.core.service.{AccountService, SystemSettingsService}
 import gitbucket.core.servlet.Database
 import gitbucket.core.util.AdminAuthenticator
+import io.github.gitbucket.markedj.{Marked, Options}
 import io.github.gitbucket.scalatra.forms._
-import org.apache.commons.mail.{DefaultAuthenticator, HtmlEmail, EmailException}
-import io.github.gitbucket.markedj.Marked
-import io.github.gitbucket.markedj.Options
+import org.apache.commons.mail.{DefaultAuthenticator, EmailException, HtmlEmail}
 import org.slf4j.LoggerFactory
-import gitbucket.core.model.{GroupMember, Account}
-import gitbucket.core.model.Profile._
-import gitbucket.core.util.{StringUtil, LDAPUtil}
-import gitbucket.core.service.SystemSettingsService.SystemSettings
-import profile.simple._
-import StringUtil._
-import org.slf4j.LoggerFactory
-import gitbucket.core.model.Profile.dateColumnType
-import javax.mail.SendFailedException
 
 class AnnounceController extends AnnounceControllerBase
 with AdminAuthenticator
