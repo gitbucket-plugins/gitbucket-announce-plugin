@@ -1,16 +1,16 @@
 # gitbucket-announce-plugin
 
-This plugin enhances [takezoe/gitbucket](https://github.com/takezoe/gitbucket) by providing an announce mechanism.
+This plugin enhances [GitBucket](https://github.com/gitbucket/gitbucket) by providing an announce mechanism.
 
 ## Features
 
 ### Global Announce
 
-This feature allows to notify gitbucket users. It is available to _admin_ users via  the `System Administration` menu of gitbucket.
+This feature allows to notify GitBucket users. It is available to _admin_ users via  the `System Administration` menu of GitBucket.
 
-The global announce sends an email to all active users. For that, notifications and thus SMTP settings of the global gitbucket configuration have to be correctly filled in the `System Administration\System Settings\Notification email` section.
+The global announce sends an email to all active users. For that, notifications and thus SMTP settings of the global GitBucket configuration have to be correctly filled in the `System Administration\System Settings\Notification email` section.
 
-It is then possible, for example, to notify every user that an upgrade of the system is planned the next monday at midday.
+It is then possible, for example, to notify every user that an upgrade of the system is planned the next Monday at midday.
 
 ## Compatibility
 
@@ -28,8 +28,8 @@ Plugin version | GitBucket version
 ## Usage
 
 - Open a shell window at the root of the project, hit `sbt package`
-- if you update gitbucket-announce-plugin, remove any existing copy of gitbucket-announce-plugin from GITBUCKET_HOME/plugins
-- Copy target/scala-2.11/gitbucket-announce-plugin_2.11-1.0.jar into GITBUCKET_HOME/plugins
+- if you update `gitbucket-announce-plugin`, remove any existing previous copy of `gitbucket-announce-plugin` from GITBUCKET_HOME/plugins
+- Copy target/scala-2.11/gitbucket-announce-plugin_2.11-X.X.jar into GITBUCKET_HOME/plugins
 - Restart GitBucket
 
 ## Release Notes
@@ -58,4 +58,4 @@ Plugin version | GitBucket version
 
 - introduce gitbucket-announce-plugin
 - global announce by email in `System Administration` menu
-- depends on [takezoe/gitbucket#861](https://github.com/takezoe/gitbucket/pull/861)
+- depends on [gitbucket/gitbucket#861](https://github.com/gitbucket/gitbucket/pull/861)
