@@ -5,3 +5,6 @@ target/
 .classpath
 /bin/
 .cache-main
+*.iml
+*.ipr
+*.iws
