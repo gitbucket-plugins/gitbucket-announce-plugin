@@ -16,6 +16,7 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
+1.7.x          | 4.16.y
 1.6.x          | 4.10.y
 1.5.x          | 4.3.y
 1.4.x          | 4.0.0 -> 4.2.x
