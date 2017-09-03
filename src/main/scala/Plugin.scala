@@ -19,6 +19,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
     , new Version("1.5.0")
     , new Version("1.6.0")
     , new Version("1.7.0")
+    , new Version("1.7.1")
   )
 
   override val systemSettingMenus: Seq[(Context) => Option[Link]] = Seq(
@@ -26,6 +27,6 @@ class Plugin extends gitbucket.core.plugin.Plugin {
   )
 
   override val controllers = Seq(
-    "/admin/announce" -> new AnnounceController()
+    "/*" -> new AnnounceController()
   )
 }

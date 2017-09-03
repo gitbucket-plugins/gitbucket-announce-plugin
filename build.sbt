@@ -1,6 +1,6 @@
 val Organization = "fr.brouillard.gitbucket"
 val ProjectName = "gitbucket-announce-plugin"
-val ProjectVersion = "1.7.0"
+val ProjectVersion = "1.7.1"
 
 lazy val root = (project in file(".")).enablePlugins(SbtTwirl)
 

@@ -6,36 +6,36 @@
 @import gitbucket.core.view.helpers._
 @import gitbucket.core.util.Directory._
 @main("New announce"){
-@menu("announce"){
-@information(info)
-<form action="@path/admin/announce" method="POST" validate="true">
-        @if(settings.useSMTP && settings.smtp.nonEmpty){
-    <div class="panel panel-default">
-        <div class="panel-heading strong">New announce</div>
-        <div class="panel-body">
+  @menu("announce"){
+    @information(info)
+    <form action="@path/admin/announce" method="POST" validate="true">
+      @if(settings.useSMTP && settings.smtp.nonEmpty){
+        <div class="panel panel-default">
+          <div class="panel-heading strong">New announce</div>
+          <div class="panel-body">
             <fieldset>
-                <label><span class="strong">To</span></label>
-                <input type="text" style="width: 635px;" name="to"/>
-                <p class="muted">Enter a comma separated list of groupname the announce will be sent to, or the keyword 'ALL' to send to all users</p>                
+              <label><span class="strong">To</span></label>
+              <input type="text" name="to" class="form-control"/>
+              <p class="muted">Enter a comma separated list of groupname the announce will be sent to, or the keyword 'ALL' to send to all users</p>                
             </fieldset>
             <fieldset>
-                <label><span class="strong">Subject</span></label>
-                <input type="text" style="width: 635px;" name="subject"/>
+              <label><span class="strong">Subject</span></label>
+              <input type="text" name="subject" class="form-control"/>
             </fieldset>
             <label><span class="strong">Content</span></label>
             <fieldset>
-                <textarea style="width: 635px; height: 100px;" name="content"></textarea>
+              <textarea style="height: 100px;" name="content" class="form-control"></textarea>
             </fieldset>
+          </div>
         </div>
-    </div>
-    <fieldset>
-        <input type="submit" class="btn btn-success" value="Send Announce"/>
-    </fieldset>
-        } else {
-    <div class="box">
-            <p>SMTP settings are disabled, verify your setup.</p>
-    </div>
-        }
-</form>
-}
+        <fieldset>
+          <input type="submit" class="btn btn-success" value="Send Announce"/>
+        </fieldset>
+      } else {
+        <div class='alert alert-danger'>
+          SMTP settings are disabled, verify your setup.
+        </div>
+      }
+    </form>
+  }
 }
