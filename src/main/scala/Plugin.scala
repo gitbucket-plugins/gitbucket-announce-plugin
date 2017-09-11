@@ -20,6 +20,7 @@ class Plugin extends gitbucket.core.plugin.Plugin {
     , new Version("1.6.0")
     , new Version("1.7.0")
     , new Version("1.7.1")
+    , new Version("1.7.2")
   )
 
   override val systemSettingMenus: Seq[(Context) => Option[Link]] = Seq(

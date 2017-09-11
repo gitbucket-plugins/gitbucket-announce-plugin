@@ -2,7 +2,7 @@ package fr.brouillard.gitbucket.announce.controller
 
 import javax.mail.SendFailedException
 
-import com.github.takezoe.slick.blocking.BlockingH2Driver.blockingApi._
+import gitbucket.core.model.Profile.profile.blockingApi._
 import fr.brouillard.gitbucket.announce.html
 import gitbucket.core.controller.ControllerBase
 import gitbucket.core.model.Account
