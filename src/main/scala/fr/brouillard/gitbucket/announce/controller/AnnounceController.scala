@@ -16,10 +16,10 @@ import org.apache.commons.mail.{DefaultAuthenticator, EmailException, HtmlEmail}
 import org.slf4j.LoggerFactory
 
 class AnnounceController extends AnnounceControllerBase
-with AdminAuthenticator
+  with AccountService with SystemSettingsService with AdminAuthenticator
 
-trait AnnounceControllerBase extends ControllerBase with AccountService {
-  self:  AdminAuthenticator =>
+trait AnnounceControllerBase extends ControllerBase {
+  self: AccountService with SystemSettingsService with AdminAuthenticator =>
 
   private val logger = LoggerFactory.getLogger(classOf[AnnounceController])
 
@@ -59,7 +59,7 @@ trait AnnounceControllerBase extends ControllerBase with AccountService {
       logger.debug("sending announce: {}", form.content)
     }
 
-    val systemSettings = new SystemSettingsService {}.loadSystemSettings
+    val systemSettings = loadSystemSettings()
     if (systemSettings.useSMTP && systemSettings.smtp.nonEmpty) {
       val email = new HtmlEmail
       val smtp = systemSettings.smtp.get
