@@ -35,6 +35,10 @@ Plugin version | GitBucket version
 
 ## Release Notes
 
+### 1.7.0
+- update to gitbucket 4.16
+- fix database support problem when gitbucket works with other than H2
+
 ### 1.6.0
 - [issue-13](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/13) update to gitbucket 4.10
 
