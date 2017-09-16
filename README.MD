@@ -16,6 +16,7 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
+1.8.x          | 4.17.y
 1.7.x          | 4.16.y
 1.6.x          | 4.10.y
 1.5.x          | 4.3.y
@@ -34,6 +35,9 @@ Plugin version | GitBucket version
 - Restart GitBucket
 
 ## Release Notes
+
+### 1.8.0
+- [issue-15](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/15) update to gitbucket 4.17
 
 ### 1.7.1
 - fix database support problem when gitbucket works with other than H2
