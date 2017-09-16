@@ -80,10 +80,10 @@ trait AnnounceControllerBase extends ControllerBase {
       }
       email.setCharset("UTF-8")
       email.setSubject(form.subject)
-      email.setSendPartial(true);
+      email.setSendPartial(true)
 
-      val opts = new Options();
-      opts.setSanitize(true);
+      val opts = new Options()
+      opts.setSanitize(true)
 
       email.setHtmlMsg(Marked.marked(form.content, opts))
 
