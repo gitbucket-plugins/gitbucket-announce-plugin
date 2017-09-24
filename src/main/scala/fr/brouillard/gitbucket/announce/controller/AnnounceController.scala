@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory
 import gitbucket.core.util.Implicits._
 
 class AnnounceController extends AnnounceControllerBase
-  with AnnounceService with AccountService with SystemSettingsService with AdminAuthenticator
+  with AnnounceService with AccountService with AdminAuthenticator
 
 trait AnnounceControllerBase extends ControllerBase {
   self: AnnounceService with SystemSettingsService with AdminAuthenticator =>
@@ -34,7 +34,7 @@ trait AnnounceControllerBase extends ControllerBase {
   })
 
   post("/admin/announce", announceForm)(adminOnly { form =>
-    val systemSettings = loadSystemSettings()
+    val systemSettings = context.settings
 
     if (systemSettings.useSMTP && systemSettings.smtp.nonEmpty) {
       if (logger.isDebugEnabled) {

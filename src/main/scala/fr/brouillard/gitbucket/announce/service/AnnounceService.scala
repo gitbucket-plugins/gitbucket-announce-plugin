@@ -13,7 +13,7 @@ object EmailAddress {
 trait AnnounceService {
   self: AccountService =>
 
-  def getAccountByGroupName(groupName: String, includeRemoved: Boolean = false)(implicit s: Session): List[Account] = {
+  def getAccountByGroupName(groupName: String)(implicit s: Session): List[Account] = {
     val needs = GroupMembers
       .filter(_.groupName === groupName.bind)
       .sortBy(_.userName)
@@ -21,7 +21,7 @@ trait AnnounceService {
       .list
 
     Accounts
-      .filter(t => (t.userName inSetBind needs) && (t.removed === false.bind, !includeRemoved))
+      .filter(t => (t.userName inSetBind needs) && (t.removed === false.bind))
       .list
   }
 
