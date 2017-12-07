@@ -8,7 +8,7 @@ import gitbucket.core.controller.ControllerBase
 import gitbucket.core.service.{AccountService, SystemSettingsService}
 import gitbucket.core.util.{AdminAuthenticator, Mailer}
 import io.github.gitbucket.markedj.{Marked, Options}
-import io.github.gitbucket.scalatra.forms._
+import org.scalatra.forms._
 import org.apache.commons.mail.EmailException
 import org.slf4j.LoggerFactory
 import gitbucket.core.util.Implicits._
