@@ -16,7 +16,8 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
-1.8.x          | 4.17.y
+1.9.x          | 4.19.y
+1.8.x          | 4.17.y, 4.18.y
 1.7.x          | 4.16.y
 1.6.x          | 4.10.y
 1.5.x          | 4.3.y
@@ -35,6 +36,9 @@ Plugin version | GitBucket version
 - Restart GitBucket
 
 ## Release Notes
+
+### 1.9.0
+- [pullrequest-16](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/pull/16) Bump to Scalatra 2.6 & Scala 2.12.4
 
 ### 1.8.0
 - [issue-15](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/issues/15) update to gitbucket 4.17
