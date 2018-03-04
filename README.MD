@@ -31,9 +31,9 @@ Plugin version | GitBucket version
 
 ## Usage
 
-- Open a shell window at the root of the project, hit `sbt package`
+- Open a shell window at the root of the project, hit `sbt assembly`
 - if you update `gitbucket-announce-plugin`, remove any existing previous copy of `gitbucket-announce-plugin` from GITBUCKET_HOME/plugins
-- Copy target/scala-2.12/gitbucket-announce-plugin_2.12-X.X.jar into GITBUCKET_HOME/plugins
+- Copy target/scala-2.12/gitbucket-announce-plugin-assembly-X.X.X.jar into GITBUCKET_HOME/plugins
 - Restart GitBucket
 
 ## Release Notes
