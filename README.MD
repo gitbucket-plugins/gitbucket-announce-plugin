@@ -38,6 +38,10 @@ Plugin version | GitBucket version
 
 ## Release Notes
 
+### 1.10.0
+
+- update to gitbucket 4.22.0
+
 ### 1.9.0
 - [pullrequest-16](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/pull/16) Bump to Scalatra 2.6 & Scala 2.12.4
 
