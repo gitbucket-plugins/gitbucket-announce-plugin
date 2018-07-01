@@ -1,5 +1,5 @@
 name := "gitbucket-announce-plugin"
 organization := "fr.brouillard.gitbucket"
-version := "1.10.0"
-scalaVersion := "2.12.4"
-gitbucketVersion := "4.22.0"
+version := "1.11.0"
+scalaVersion := "2.12.6"
+gitbucketVersion := "4.26.0"

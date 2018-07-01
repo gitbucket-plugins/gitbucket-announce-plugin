@@ -16,7 +16,8 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
-1.10.x         | 4.21.x, 4.22.x
+1.11.x         | 4.26.x
+1.10.x         | 4.21.x -> 4.25.x
 1.9.x          | 4.19.x, 4.20.x
 1.8.x          | 4.17.x, 4.18.x
 1.7.x          | 4.16.x
@@ -37,6 +38,10 @@ Plugin version | GitBucket version
 - Restart GitBucket
 
 ## Release Notes
+
+### 1.11.0
+
+- Bump sbt-gitbucket-plugin to 1.3.0 to be hosted by the [plugin registry](https://plugins.gitbucket-community.org/)
 
 ### 1.10.0
 
