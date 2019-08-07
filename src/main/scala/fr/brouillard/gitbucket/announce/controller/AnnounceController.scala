@@ -58,7 +58,7 @@ trait AnnounceControllerBase extends ControllerBase {
 
       try {
         mailer.sendBcc(bcc, form.subject, form.content, Some(html), context.loginAccount)
-        flash += "info" -> "Announce has been sent."
+        flash.update("info", "Announce has been sent.")
       } catch {
         case t:  EmailException => {
           t.getCause match {
@@ -74,21 +74,21 @@ trait AnnounceControllerBase extends ControllerBase {
                   logger.error("email not sent to: {}", ua.toString())
                 }
               }
-              flash += "info" -> "Announce has been sent."
+              flash.update("info", "Announce has been sent.")
             }
             case _ => {
               logger.error("failure sending email", t)
-              flash += "info" -> "Announce cannot be sent, verify log errors."
+              flash.update("info", "Announce cannot be sent, verify log errors.")
             }
           }
         }
         case e: Exception => {
           logger.error("unexpected exception while sending email", e)
-          flash += "info" -> "Announce cannot be sent, verify log errors."
+          flash.update("info", "Announce cannot be sent, verify log errors.")
         }
       }
     } else {
-      flash += "info" -> "Announce cannot be sent, verify SMTP settings"
+      flash.update("info", "Announce cannot be sent, verify SMTP settings")
     }
 
     redirect("/admin/announce")
