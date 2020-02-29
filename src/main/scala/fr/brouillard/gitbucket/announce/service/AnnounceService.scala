@@ -33,9 +33,13 @@ trait AnnounceService {
         getAccountByGroupName(groupAccount)
       }
       userMailAddress.collect { case x
-        if !x.isGroupAccount && x.mailAddress.nonEmpty && EmailAddress.isValid(x.mailAddress) => x.mailAddress
+        if !x.isGroupAccount && x.mailAddress.nonEmpty =>
+          x.mailAddress :: getAccountExtraMailAddresses(x.userName)
       }
-    }.distinct.toList
+    }
+    .flatten
+    .filter(mail => EmailAddress.isValid(mail))
+    .distinct
+    .toList
   }
-
 }
