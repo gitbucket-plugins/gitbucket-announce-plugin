@@ -16,6 +16,7 @@ It is then possible, for example, to notify every user that an upgrade of the sy
 
 Plugin version | GitBucket version
 :--------------|:-----------------
+1.13.x         | 4.33.x
 1.12.x         | 4.32.x
 1.11.x         | 4.26.x
 1.10.x         | 4.21.x -> 4.25.x
@@ -39,6 +40,11 @@ Plugin version | GitBucket version
 - Restart GitBucket
 
 ## Release Notes
+
+### 1.13.0
+
+- [pullrequest-19](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/pull/19) Support for extra mail address
+
 
 ### 1.12.0
 
