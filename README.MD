@@ -42,6 +42,11 @@ Plugin version | GitBucket version
 
 ## Release Notes
 
+### 1.14.0
+
+- [pullrequest-20](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/pull/21) update to gitbucket 4.35.0
+
+
 ### 1.13.0
 
 - [pullrequest-19](https://github.com/gitbucket-plugins/gitbucket-announce-plugin/pull/19) Support for extra mail address
