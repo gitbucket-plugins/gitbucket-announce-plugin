@@ -8,3 +8,8 @@ target/
 *.iml
 *.ipr
 *.iws
+.vscode/
+.metals/
+.bloop/
+**/metals.sbt
+.DS_Store
